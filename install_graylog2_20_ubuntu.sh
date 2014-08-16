@@ -7,6 +7,7 @@
 set -e
 # Setup logging
 # Logs stderr and stdout to separate files.
+mkdir -p ./graylog2
 exec 2> >(tee "./graylog2/install_graylog2.err")
 exec > >(tee "./graylog2/install_graylog2.log")
 
