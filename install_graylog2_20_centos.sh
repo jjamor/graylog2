@@ -41,6 +41,7 @@ sed -i 's/\=enforcing/\=disabled/g' /etc/selinux/config
 # reboot
 
 # Setup logging
+mkdir -p ./graylog2
 exec 2> >(tee "./graylog2/install_graylog2.err")
 exec > >(tee "./graylog2/install_graylog2.log")
 
