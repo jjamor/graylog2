@@ -25,6 +25,13 @@ function pause(){
 # exit 1
 # fi
 
+# Disable IPv6 while installing ... sometimes repositories do not respond
+# with IPv6
+echo "Temporary disabling IPv6"
+sysctl net.ipv6.conf.all.disable_ipv6=1
+sysctl net.ipv6.conf.default.disable_ipv6=1
+sysctl net.ipv6.conf.lo.disable_ipv6=1
+
 echo "Detecting IP Address"
 IPADDY="$(ifconfig | grep -A 1 'eth0' | tail -1 | cut -d ':' -f 2 | cut -d ' ' -f 1)"
 echo "Detected IP Address is $IPADDY"
